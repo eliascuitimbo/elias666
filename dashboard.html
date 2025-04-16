@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+</head>
+<body>
+  <h1 id="saludo">Cargando...</h1>
+
+  <script>
+    async function cargarUsuario() {
+      const { data: { user } } = await supabase.auth.getUser();
+      const metadata = user.user_metadata;
+
+      document.getElementById("saludo").innerText =
+        `¡Bienvenido, ${metadata.name || 'Usuario'} (${metadata.role || 'Sin rol'})!`;
+
+      if (metadata.role === "SuperAdmin") {
+        document.body.style.backgroundColor = "#111";
+        document.body.style.color = "#fff";
+      }
+    }
+
+    cargarUsuario();
+  </script>
+</body>
+</html>
