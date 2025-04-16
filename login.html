@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="supabase.js"></script>
 </head>
 <body>
   <h2>Iniciar sesión</h2>
@@ -13,6 +11,9 @@
   <button onclick="login()">Ingresar</button>
   <p id="mensaje"></p>
 
+  <!-- ORDEN CORRECTO -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
   <script>
     async function login() {
       const email = document.getElementById('email').value;
@@ -31,3 +32,4 @@
   </script>
 </body>
 </html>
+
